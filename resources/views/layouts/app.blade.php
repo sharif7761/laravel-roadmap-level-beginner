@@ -58,12 +58,12 @@
                                 </a>
                             </li>
                             <li class="nav-item dropdown">
-                                <a class="nav-link" href="#">
+                                <a class="nav-link" href="{{ route('category.index') }}">
                                     Category
                                 </a>
                             </li>
                             <li class="nav-item dropdown">
-                                <a class="nav-link" href="#">
+                                <a class="nav-link" href="{{ route('tag.index') }}">
                                     Tag
                                 </a>
                             </li>
