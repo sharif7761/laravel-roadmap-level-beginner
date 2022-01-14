@@ -2,6 +2,7 @@
 
 @section('content')
 <div class="container">
+    <a href="{{ route('post.create') }}" class="float-right btn btn-primary">Add Post</a>
     <table class="table table-striped">
         <thead>
             <tr>
