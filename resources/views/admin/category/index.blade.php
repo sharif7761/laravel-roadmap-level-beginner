@@ -2,6 +2,11 @@
 
 @section('content')
 <div class="container">
+    @if(count($errors))
+        @foreach($errors->all() as $error)
+            <p class="alert alert-danger">{{ $error }}</p>
+        @endforeach
+    @endif
     <button type="button" class="btn btn-primary float-right" data-toggle="modal" data-target="#exampleModal">
         Add Category
     </button>
@@ -44,7 +49,8 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <form>
+                        <form action="{{ route('category.store') }}" method="post">
+                            @csrf
                             <div class="form-group">
                                 <label for="name">Name</label>
                                 <input type="text" name="name" class="form-control" id="name" value="{{ old('name') }}">
