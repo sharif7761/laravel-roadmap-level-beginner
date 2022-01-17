@@ -16,7 +16,7 @@
                 </div>
                 <div class="form-group">
                     <label for="body">Body</label>
-                    <textarea class="form-control" name="body" id="body" >value="{{ old('body', $post->body) }}"</textarea>
+                    <textarea class="form-control" name="body" id="body" >{{ old('body', $post->body) }}</textarea>
                 </div>
                 <div class="form-group">
                     <label for="image">Image</label>

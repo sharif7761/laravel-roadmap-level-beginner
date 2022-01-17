@@ -2,10 +2,16 @@
 
 @section('content')
 <div class="container">
+    @if(count($errors))
+        @foreach($errors->all() as $error)
+            <p class="alert alert-danger">{{ $error }}</p>
+        @endforeach
+    @endif
     <div class="card">
         <div class="card-body">
             <h5 class="card-title">Create Post</h5>
-            <form>
+            <form action="{{ route('post.store') }}" method="post">
+                @csrf
                 <div class="form-group">
                     <label for="title">Title</label>
                     <input type="text" name="title" class="form-control" id="title" value="{{ old('title') }}">
@@ -16,7 +22,7 @@
                 </div>
                 <div class="form-group">
                     <label for="body">Body</label>
-                    <textarea class="form-control" name="body" id="body" >value="{{ old('body') }}"</textarea>
+                    <textarea class="form-control" name="body" id="body" >{{ old('body') }}</textarea>
                 </div>
                 <div class="form-group">
                     <label for="image">Image</label>
