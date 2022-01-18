@@ -2,11 +2,6 @@
 
 @section('content')
 <div class="container">
-    @if(count($errors))
-        @foreach($errors->all() as $error)
-            <p class="alert alert-danger">{{ $error }}</p>
-        @endforeach
-    @endif
     <div class="card">
         <div class="card-body">
             <h5 class="card-title">Create Post</h5>

@@ -25,6 +25,7 @@
     @include('admin.layouts.header')
 
     <main class="py-4">
+        @include('admin.includes.messages')
         @yield('content')
     </main>
 </div>
