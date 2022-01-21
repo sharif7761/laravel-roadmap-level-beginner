@@ -13,7 +13,7 @@
             </tr>
         </thead>
         <tbody>
-            {{-- @foreach ($posts as $post)
+            @foreach ($posts as $post)
             <tr>
                 <td>{{ $post->image }}</td>
                 <td>{{ $post->title }}</td>
@@ -27,7 +27,7 @@
                     </form>
                 </td>
             </tr>
-            @endforeach --}}
+            @endforeach
         </tbody>
 </div>
 @endsection
