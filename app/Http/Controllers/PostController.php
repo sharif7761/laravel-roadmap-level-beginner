@@ -74,7 +74,7 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
-        return view('admin.post.edit', 'post');
+        return view('admin.post.edit', compact('post'));
     }
 
     /**
@@ -84,10 +84,25 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Post $post)
     {
-        //
-        }
+        $this->validate($request, [
+            'title' => 'required',
+            'subtitle' => 'required',
+            'body' => 'required',
+        ]);
+
+
+        $post->title = $request->title;
+        $post->subtitle = $request->subtitle;
+        $post->slug = Str::slug($request->title);
+        $post->body = $request->body;
+        $post->posted_by = 1;
+        $post->image = 1;
+        $post->save();
+
+        return redirect()->route('post.index');
+    }
 
     /**
      * Remove the specified resource from storage.
