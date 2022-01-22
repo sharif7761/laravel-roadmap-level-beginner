@@ -8,28 +8,26 @@
     <table class="table table-striped">
         <thead>
             <tr>
-                <th>Image</th>
-                <th>Title</th>
-                <th>Post</th>
+                <th>Name</th>
+                <th>Slug</th>
                 <th>Action</th>
             </tr>
         </thead>
         <tbody>
-            {{-- @foreach ($posts as $post)
+             @foreach ($categories as $category)
             <tr>
-                <td>{{ $post->image }}</td>
-                <td>{{ $post->title }}</td>
-                <td>{{ $post->post }}</td>
+                <td>{{ $category->name }}</td>
+                <td>{{ $category->slug }}</td>
                 <td>
-                    <a href="{{ route('post.edit', $post->id) }}" class="btn btn-primary">Edit</a>
-                    <form action="{{ route('post.destroy', $post->id) }}" method="POST" class="d-inline">
+                    <a href="{{ route('category.edit', $category->id) }}" class="btn btn-primary">Edit</a>
+                    <form action="{{ route('category.destroy', $category->id) }}" method="POST" class="d-inline">
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="btn btn-danger">Delete</button>
                     </form>
                 </td>
             </tr>
-            @endforeach --}}
+            @endforeach
         </tbody>
     </table>
 
