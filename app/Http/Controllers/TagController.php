@@ -65,9 +65,9 @@ class TagController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Tag $tag)
     {
-        //
+        return view('admin.tag.edit', compact('tag'));
     }
 
     /**
@@ -77,9 +77,12 @@ class TagController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Tag $tag)
     {
-        //
+        $tag->name = $request->name;
+        $tag->slug = Str::slug($request->slug);
+        $tag->save();
+        return redirect()->route('tag.index');
     }
 
     /**
