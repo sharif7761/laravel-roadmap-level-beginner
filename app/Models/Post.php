@@ -9,7 +9,11 @@ class Post extends Model
 {
     use HasFactory;
 
-    public function posts(){
-        return $this->belongsToMany(Post::class, 'category_post');
+    public function categories(){
+        return $this->belongsToMany(Category::class, 'category_posts');
+    }
+
+    public function tags(){
+        return $this->belongsToMany(Tag::class, 'post_tags');
     }
 }
