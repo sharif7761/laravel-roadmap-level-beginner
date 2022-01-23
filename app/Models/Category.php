@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Category extends Model
 {
     use HasFactory;
+
+    public function categories(){
+        return $this->belongsToMany(Category::class, 'category_post');
+    }
 }
