@@ -1,7 +1,9 @@
 @extends('admin.layouts.admin_layout')
+@push('custom_css')
 
+@endpush
 @section('content')
-<div class="container">
+  <div class="container">
     <div class="card">
         <div class="card-body">
             <h5 class="card-title">Create Post</h5>
@@ -27,9 +29,35 @@
                     <label for="status">Publish</label>
                     <input type="checkbox" name="status" id="status">
                 </div>
+                <div class="form-group">
+                    <select name="" id="tagSelection" class="form-control">
+                        @foreach($tags as $tag)
+                        <option value="{{ $tag->id }}"> {{$tag->name}} </option>
+                        @endforeach
+                    </select>
+                </div>
+                <div class="form-group">
+                    <select name="" id="cateSelection" class="form-control">
+                        @foreach($categories as $category)
+                            <option value="{{ $category->id }}"> {{$category->name}} </option>
+                        @endforeach
+                    </select>
+                </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>
         </div>
     </div>
 </div>
 @endsection
+@push('custom_js')
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#tagSelection').select2({
+                multiple: true
+            });
+            $('#cateSelection').select2({
+                multiple: true
+            });
+        });
+    </script>
+@endpush
