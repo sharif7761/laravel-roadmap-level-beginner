@@ -30,14 +30,14 @@
                     <input type="checkbox" name="status" id="status">
                 </div>
                 <div class="form-group">
-                    <select name="" id="tagSelection" class="form-control">
+                    <select name="tags[]" id="tagSelection" class="form-control">
                         @foreach($tags as $tag)
                         <option value="{{ $tag->id }}"> {{$tag->name}} </option>
                         @endforeach
                     </select>
                 </div>
                 <div class="form-group">
-                    <select name="" id="cateSelection" class="form-control">
+                    <select name="categories[]" id="cateSelection" class="form-control">
                         @foreach($categories as $category)
                             <option value="{{ $category->id }}"> {{$category->name}} </option>
                         @endforeach

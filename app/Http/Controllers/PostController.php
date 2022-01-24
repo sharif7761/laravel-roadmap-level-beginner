@@ -55,6 +55,8 @@ class PostController extends Controller
         $post->posted_by = 1;
         $post->image = 1;
         $post->save();
+        $post->tags()->sync($request->tags);
+        $post->categories()->sync($request->categories);
 
         return redirect()->route('post.index');
     }
