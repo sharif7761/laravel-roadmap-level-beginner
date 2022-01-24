@@ -1,7 +1,4 @@
 @extends('admin.layouts.admin_layout')
-@push('custom_css')
-
-@endpush
 @section('content')
   <div class="container">
     <div class="card">
@@ -30,6 +27,7 @@
                     <input type="checkbox" name="status" id="status">
                 </div>
                 <div class="form-group">
+                    <label for="tagSelection">Tags</label>
                     <select name="tags[]" id="tagSelection" class="form-control">
                         @foreach($tags as $tag)
                         <option value="{{ $tag->id }}"> {{$tag->name}} </option>
@@ -37,6 +35,7 @@
                     </select>
                 </div>
                 <div class="form-group">
+                    <label for="cateSelection">Categories</label>
                     <select name="categories[]" id="cateSelection" class="form-control">
                         @foreach($categories as $category)
                             <option value="{{ $category->id }}"> {{$category->name}} </option>

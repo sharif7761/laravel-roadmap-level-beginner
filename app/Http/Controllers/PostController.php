@@ -80,7 +80,9 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
-        return view('admin.post.edit', compact('post'));
+        $tags = Tag::all();
+        $categories = Category::all();
+        return view('admin.post.edit', compact('post', 'tags', 'categories'));
     }
 
     /**
@@ -106,7 +108,8 @@ class PostController extends Controller
         $post->posted_by = 1;
         $post->image = 1;
         $post->save();
-
+        $post->tags()->sync($request->tags);
+        $post->categories()->sync($request->categories);
         return redirect()->route('post.index');
     }
 
