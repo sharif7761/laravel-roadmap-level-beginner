@@ -8,7 +8,8 @@ use Illuminate\Http\Request;
 class FrontendController extends Controller
 {
     public function home(){
-        return view('frontend.welcome');
+        $posts = Post::active()->get();
+        return view('frontend.welcome', compact('posts'));
     }
 
     public function showPost($slug){

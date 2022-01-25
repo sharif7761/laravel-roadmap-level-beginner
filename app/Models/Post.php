@@ -17,5 +17,8 @@ class Post extends Model
         return $this->belongsToMany(Tag::class, 'post_tags')->withTimestamps();
     }
 
+    public function scopeActive($query) {
+        return $query->where('status', true);
+    }
 
 }

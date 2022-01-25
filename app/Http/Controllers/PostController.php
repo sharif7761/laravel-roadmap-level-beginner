@@ -54,6 +54,7 @@ class PostController extends Controller
         $post->body = $request->body;
         $post->posted_by = 1;
         $post->image = 1;
+        $post->status = 1;
         $post->save();
         $post->tags()->sync($request->tags);
         $post->categories()->sync($request->categories);
@@ -107,6 +108,7 @@ class PostController extends Controller
         $post->body = $request->body;
         $post->posted_by = 1;
         $post->image = 1;
+        $post->status = 1;
         $post->save();
         $post->tags()->sync($request->tags);
         $post->categories()->sync($request->categories);
