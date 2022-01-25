@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\TagController;
@@ -16,13 +17,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('frontend.welcome');
-});
-
-Route::get('/show', function () {
-    return view('frontend.show');
-});
+Route::get('/', [FrontendController::class, 'home']);
+Route::get('/blog/{slug}', [FrontendController::class, 'showPost'])->name('blogPost');
 
 Auth::routes();
 
