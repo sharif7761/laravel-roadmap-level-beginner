@@ -32,7 +32,14 @@
                     <label for="tagSelection">Tags</label>
                     <select name="tags[]" id="tagSelection" class="form-control">
                         @foreach($tags as $tag)
-                            <option value="{{ $tag->id }}"> {{$tag->name}} </option>
+                            <option value="{{ $tag->id }}"
+                                 @foreach($post->tags as $postTag)
+                                    @if($postTag->id == $tag->id)
+                                        selected
+                                    @endif
+                                @endforeach
+                            >
+                                {{$tag->name}} </option>
                         @endforeach
                     </select>
                 </div>
@@ -40,7 +47,14 @@
                     <label for="cateSelection">Categories</label>
                     <select name="categories[]" id="cateSelection" class="form-control">
                         @foreach($categories as $category)
-                            <option value="{{ $category->id }}"> {{$category->name}} </option>
+                            <option value="{{ $category->id }}"
+                                    @foreach($post->categories as $postCategory)
+                                        @if($postCategory->id == $category->id)
+                                            selected
+                                        @endif
+                                    @endforeach
+                            > {{$category->name}}
+                            </option>
                         @endforeach
                     </select>
                 </div>
