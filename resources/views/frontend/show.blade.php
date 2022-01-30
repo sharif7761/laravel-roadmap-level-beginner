@@ -12,5 +12,14 @@
             <a href="#">Like</a>
             <a href="#">Dislike</a>
        </div>
+        <span>Categories: </span>
+        @foreach($post->categories as $category)
+            <span class="badge badge-primary">{{ $category->name }}</span>
+        @endforeach
+        <br>
+        <span>Tags: </span>
+        @foreach($post->tags as $tag)
+            <span class="badge badge-primary">{{ $tag->name }}</span>
+        @endforeach
     </div>
 @endsection
