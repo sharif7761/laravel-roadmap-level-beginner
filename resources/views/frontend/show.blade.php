@@ -14,12 +14,12 @@
        </div>
         <span>Categories: </span>
         @foreach($post->categories as $category)
-            <span class="badge badge-primary">{{ $category->name }}</span>
+            <span class="badge badge-primary"><a href="{{ route('post.category', $category->slug) }}">{{ $category->name }}</a></span>
         @endforeach
         <br>
         <span>Tags: </span>
         @foreach($post->tags as $tag)
-            <span class="badge badge-primary">{{ $tag->name }}</span>
+            <span class="badge badge-primary"><a href="{{ route('post.tag', $tag->slug) }}">{{ $tag->name }}</a></span>
         @endforeach
     </div>
 @endsection

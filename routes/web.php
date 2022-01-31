@@ -19,6 +19,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [FrontendController::class, 'home'])->name('frontend.home');
 Route::get('/blog/{slug}', [FrontendController::class, 'showPost'])->name('blogPost');
+Route::get('/blog/category/{slug}', [FrontendController::class, 'postCategory'])->name('post.category');
+Route::get('/blog/tag/{slug}', [FrontendController::class, 'postTag'])->name('post.tag');
 
 Auth::routes();
 
