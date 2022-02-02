@@ -48,12 +48,18 @@ class PostController extends Controller
         ]);
 
         $post = new Post();
+
+        if($request->hasFile('image')){
+           $imageName = $request->image->store('public');
+           $post->image = $imageName;
+        }
+
+
         $post->title = $request->title;
         $post->subtitle = $request->subtitle;
         $post->slug = Str::slug($request->title);
         $post->body = $request->body;
         $post->posted_by = 1;
-        $post->image = 1;
         $post->status = 1;
         $post->save();
         $post->tags()->sync($request->tags);
